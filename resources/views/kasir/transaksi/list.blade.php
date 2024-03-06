@@ -14,14 +14,16 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card">
-                        <div class="card-header">
-                            <h4 class="card-title">Data Transaksi</h4>
-                            <a class="btn btn-primary btn-round" href="/transaksi/create">
-                                <i class="fa fa-plus"></i>
-                                Tambah Data
-                            </a>
-                        </div>
                         <div class="card-body">
+                            <div class="card-header">
+                                <div class="d-flex align-items-center">
+                                    <h4 class="card-title">{{ $title }}</h4>
+                                    <a class="btn btn-primary btn-sm btn-round al-auto" href="/transaksi/create">
+                                        <i class="fa fa-plus"></i>
+                                        Tambah Data
+                                    </a>
+                                </div>
+                            </div>
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered zero-configuration">
                                     <thead>
@@ -41,11 +43,11 @@
                                             <tr>
                                                 <td>{{ $no++ }}</td>
                                                 <td>{{ $row->no_transaksi }}</td>
-                                                <td>{{ date('d/M/Y', strtotine($row->tgl_transaksi)) }}</td>
+                                                <td>{{ date('d/M/Y', strtotime($row->tgl_transaksi)) }}</td>
+                                                <td>{{ $row->stok }} Pcs</td>
                                                 <td>Rp. {{ number_format($row->total_bayar) }}</td>
                                                 <td>
-                                                    <a href="#" target="_blank" class="btn btn-xs btn-primary"><i
-                                                            class="fa fa-print"></i> Cetak</a>
+                                                    <a href="#" target="_blank" class="btn btn-xs btn-primary"><i class="fa fa-print"></i> Cetak</button>
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -58,4 +60,6 @@
             </div>
         </div>
     </div>
+
+   
 @endsection

@@ -9,10 +9,8 @@
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon.png">
     <!-- Custom Stylesheet -->
-    <link href="/assets/plugins/tables/css/datatable/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="/assets//plugins/tables/css/datatable/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
-    <link href="/assets/plugins/sweetalert/css/sweetalert.css" rel="stylesheet">
-
 
 </head>
 
@@ -69,36 +67,23 @@
                     </div>
                 </div>
                 <div class="header-left">
-                    <div class="input-group icons">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text bg-transparent border-0 pr-2 pr-sm-3" id="basic-addon1"><i
-                                    class="mdi mdi-magnify"></i></span>
-                        </div>
-                        <input type="search" class="form-control" placeholder="Search Dashboard"
-                            aria-label="Search Dashboard">
-                        <div class="drop-down animated flipInX d-md-none">
-                            <form action="#">
-                                <input type="text" class="form-control" placeholder="Search">
-                            </form>
-                        </div>
-                    </div>
                 </div>
                 <div class="header-right">
                     <ul class="clearfix">
+
                         <li class="icons dropdown">
                             <div class="user-img c-pointer position-relative" data-toggle="dropdown">
-                                {{-- <span class="activity active"></span> --}}
-                                <img src="assets/images/user/1.png" height="40" width="40" alt="">
+                                <span class="activity active"></span>
+                                <img src="images/user/1.png" height="40" width="40" alt="">
                             </div>
-                            <div class="drop-down dropdown-profile animated fadeIn dropdown-menu">
+                            <div class="drop-down dropdown-profile   dropdown-menu">
                                 <div class="dropdown-content-body">
                                     <ul>
                                         <li>
-                                            <a href="/profile"><i class="icon-user"></i>
-                                                <span>Profile</span></a>
+                                            <a href="profile"><i class="icon-user"></i> <span>Registrasi</span></a>
                                         </li>
-                                        <li><a href="/logout"><i class="icon-key"></i> <span>Logout</span></a>
-                                        </li>
+                                        <hr class="my-2">
+                                        <li><a href="/logout"><i class="icon-key"></i> <span>Logout</span></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -107,7 +92,6 @@
                 </div>
             </div>
         </div>
-
         <!--**********************************
             Header end ti-comment-alt
         ***********************************-->
@@ -119,7 +103,15 @@
             <div class="nk-nav-scroll">
                 <ul class="metismenu" id="menu">
                     <li class="nav-label">Dashboard</li>
+                    <li>
+                        <a href="#" aria-expanded="false">
+                            <i class="icon-speedometer menu-icon"></i><span class="nav-text">Dashboard</span>
+                        </a>
+                    </li>
                     <li class="nav-label">UI Components</li>
+
+                    {{-- @if (Auth::user()->role == 'admin')
+                    @endif --}}
                     <li>
                         <a href="/setdiskon" aria-expanded="false">
                             <i class="icon-speedometer menu-icon"></i><span class="nav-text">Setting Diskon</span>
@@ -137,7 +129,7 @@
                     </li>
                     <li>
                         <a href="/transaksi" aria-expanded="false">
-                            <i class="icon-speedometer menu-icon"></i><span class="nav-text">Data Transaksi</span>
+                            <i class="icon-speedometer menu-icon"></i><span class="nav-text">Data Transaksi </span>
                         </a>
                     </li>
                     <li class="mega-menu mega-menu-sm">
@@ -156,8 +148,26 @@
         <!--**********************************
             Sidebar end
         ***********************************-->
+
         @yield('content')
+
+
+        <!--**********************************
+            Footer start
+        ***********************************-->
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright &copy; Designed & Developed by <a href="#">Quixlab</a> 2018</p>
+            </div>
+        </div>
+        <!--**********************************
+            Footer end
+        ***********************************-->
     </div>
+    <!--**********************************
+        Main wrapper end
+    ***********************************-->
+
     <!--**********************************
         Scripts
     ***********************************-->
@@ -166,53 +176,52 @@
     <script src="/assets/js/settings.js"></script>
     <script src="/assets/js/gleek.js"></script>
     <script src="/assets/js/styleSwitcher.js"></script>
+    <script src="/assets/js/plugins-init/bootsrap-notify-init.js"></script>
 
     <script src="/assets/plugins/tables/js/jquery.dataTables.min.js"></script>
     <script src="/assets/plugins/tables/js/datatable/dataTables.bootstrap4.min.js"></script>
     <script src="/assets/plugins/tables/js/datatable-init/datatable-basic.min.js"></script>
 
-    <script src="/assets/js/bootstrap4-notify/bootstrap4-notify.min.js"></script>
-    <script src="/assets/js/sweetalert/sweetalert.min.js"></script>
+
 
     @if (session('success'))
         <script>
             var SweetAlert2Demo = function() {
-                var iniDemos = function() {
+                var initDemos = function() {
 
-                    Swal({
-                        title: "{{ session('succes') }}",
-                        text: "{{ session('succes') }}",
+                    swal({
+                        title: "{{ session('success') }}",
+                        text: "{{ session('success') }}",
                         icon: "success",
                         buttons: {
                             confirm: {
-                                text: "Confirm Me",
+                                text: "confirm Me",
                                 value: true,
                                 visible: true,
-                                ClassName: "btn btn-success",
-                                CloseModal: true
+                                className: "btn btn-success",
+                                closeModal: true
                             }
                         }
                     });
-
                 };
 
                 return {
                     init: function() {
-                        iniDemos();
-                    };
-                };
-
+                        initDemos();
+                    },
+                },
             }();
 
             jQuery(document).ready(function() {
-                SweetAlret2Demo.init();
+                SweetAlert2Demo.init();
             });
         </script>
     @endif
-    @if (session('eror'))
+
+    @if (session('error'))
         <script>
             var SweetAlert2Demo = function() {
-                var iniDemos = function() {
+                var initDemos = function() {
 
                     swal({
                         title: "{{ session('error') }}",
@@ -220,11 +229,11 @@
                         icon: "error",
                         buttons: {
                             confirm: {
-                                text: "Confirm Me",
+                                text: " confirm Me",
                                 value: true,
                                 visible: true,
-                                ClassName: "btn btn-success",
-                                CloseModal: true
+                                className: "btn btn-success",
+                                closeModal: true
                             }
                         }
                     });
@@ -232,7 +241,7 @@
 
                 return {
                     init: function() {
-                        iniDemos();
+                        initDemos();
                     },
                 };
             }();

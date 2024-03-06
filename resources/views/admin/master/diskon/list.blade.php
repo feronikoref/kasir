@@ -15,29 +15,27 @@
                 <div class="col-12">
                     <div class="card">
                         @foreach ($data_diskon as $d)
-                            <form method="POST" action="/Setdiskon/update/{{ $d->id }}">
+                            <form method="POST" action="/setdiskon/update/{{ $d->id }}">
                                 @csrf
                                 <div class="card-body">
                                     <div class="d-flex align-items-center">
                                         <h4 class="card-title">{{ $title }}</h4>
                                     </div>
-                                    <hr/>
-                                
+                                    <hr />
+
                                     <div class="row">
-                                        <div class ="col-md-6">
+                                        <div class="col-md-6">
                                             <label>Total Belanja</label>
                                             <div class="input-group mb-3">
                                                 <div class="input-group-prepend"><span class="input-group-text">Rp</span>
                                                 </div>
-                                                <input type="number" name="total_belanja" value="{{ $d->total_belanja }}"
-                                                    class="form-control" placeholder="total belanja ..." required>
+                                                <input type="number" name="total_belanja" value="{{ $d->total_belanja }}" class="form-control" placeholder="total belanja ..." required>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <label>Diskon</label>
                                             <div class="input-group mb-3">
-                                                <input type="number" name="diskon" value="{{ $d->diskon }}" placeholder="diskon ..."
-                                                    class="form-control" required>
+                                                <input type="number" name="diskon" value="{{ $d->diskon }}" placeholder="diskon ..." class="form-control" required>
                                                 <div class="input-group-prepend"><span class="input-group-text">%</span>
                                                 </div>
                                             </div>
@@ -48,10 +46,10 @@
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal"><i
                                             class="fa fa-undo"></i></button>
                                     <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i>
-                                            changes</button>
+                                        changes</button>
                                 </div>
                             </form>
-                        @endforeach
+                        @endforeach 
                     </div>
                 </div>
             </div>

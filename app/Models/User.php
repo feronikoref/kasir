@@ -11,9 +11,9 @@ use Laravel\Sanctum\HasApiTokens;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
+
     protected $table = 'users';
 
-   
     protected $fillable = [
         'name',
         'email',
@@ -21,14 +21,18 @@ class User extends Authenticatable
         'role',
     ];
 
-
+    
     protected $hidden = [
         'password',
+        
     
     ];
 
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+        'password' => 'hashed',
+    ];
+    
     const CREATED_AT = 'created_at';
     const UPDATED_AT = 'updated_at';
-
-   
 }

@@ -18,36 +18,32 @@
                             <form method="POST" action="/profile/updateprofile/{{ $d->id }}">
                                 @csrf
                                 <div class="card-body">
-                                <div class="d-flex align-items-center">
-                                    <h4 class="card-title">{{ $title }}</h4>
-                                </div>
-                                <hr/>
-                                <input type="hidden"  name="role" value="{{$d->role}}" required>
-                                <div class="form-group">
-                                    <label>Nama Lengkap</label>
-                                    <input type="text" class="form-control" name="name" value="{{$d->name}}" placeholder="Nama Lengkap ..." required>
-                                </div>
+                                    <div class="d-flex align-items-center">
+                                        <h4 class="card-title">{{ $title }}</h4>
+                                    </div>
+                                    <hr/>
+                                    <input type="hidden" name="role" value="{{ $d->role }}" required>
+                                    <div class="form-group">
+                                        <label>Nama Lengkap</label>
+                                        <input type="text" class="form-control" name="name" value="{{ $d->name }}" placeholder="Nama Lengkap ..." required>
+                                    </div>
                                     <div class="row">
-                                        <div class ="col-md-6">
+                                        <div class="col-md-6">
                                             <div class="form-group">
                                             <label>Email</label>
-                                            <input type="email" class="form-control" name="email" value="{{$d->email}}"placeholder="Email ..." required>
-                                            </div>
+                                            <input type="email" class="form-control" name="email" value="{{ $d->email }}" placeholder="Email ..." required>
+                                        </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Password</label>
-                                                <input type="password" class="form-control" name="password" value="{{$d->password}}"placeholder="Password ..." required>
-                                                </div>
+                                                <input type="password" class="form-control" name="password" placeholder="Password ..." required>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal"><i
-                                            class="fa fa-undo"></i></button>
-                                    <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i>
-                                            changes</button>
+                                <div class="card-footer">
+                                    <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Save Changes</button>
                                 </div>
                             </form>
                         @endforeach

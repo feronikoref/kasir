@@ -29,7 +29,7 @@
                             <td align="center">
                                 <span style="line-height: 1.6; font-weight: bold;">
                                     TOKO KITA
-                                    <br>FERONIKA
+                                    <br>AMANDA
                                 </span>
                             </td>
                         </tr>

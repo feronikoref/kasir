@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -21,8 +22,8 @@ class AuthController extends Controller
         //     'password' => 'required'
         // ]);
 
-        // dd($email, $password);
-        
+        //  dd($validate);
+
         if (Auth::attempt(['email' => $email, 'password' => $password])) {
             //dd($email, $password);
             $request->session()->regenerate();
